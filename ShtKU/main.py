@@ -4,11 +4,11 @@ from collections import deque
 import openai
 import threading
 from datetime import datetime
-openai.api_key = ""
-openai.api_base = ""
+openai.api_key = "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"
+openai.api_base = "http://172.178.89.163:3001/v1"
 
 # 连接MongoDB数据库
-client = MongoClient("")
+client = MongoClient("mongodb://SHTKU:qimengkeji147@1.15.136.115:27017/shtku")
 db = client['shtku']
 
 

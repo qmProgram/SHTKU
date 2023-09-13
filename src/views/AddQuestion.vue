@@ -23,9 +23,9 @@
             <el-button @click="removeForm(index)" type="danger">移除问题</el-button>
         </div>
         <el-row>
-            <el-button @click="addForm" type="success" class="submit-button" icon="el-icon-plus">添加问题</el-button>
-            <el-button type="primary" @click="submitForms" class="submit-button" icon="el-icon-upload">提交所有</el-button>
-            <el-button type="primary" @click="DeleteForms" class="submit-button" icon="el-icon-upload">删除所有</el-button>
+            <el-button @click="addForm" type="success" class="submit-button" >添加问题</el-button>
+            <el-button type="primary" @click="submitForms" class="submit-button" >提交所有</el-button>
+            <el-button type="primary" @click="DeleteForms" class="submit-button" >删除所有</el-button>
         </el-row>
     </div>
 </template>
@@ -153,8 +153,6 @@ onMounted(async () => {
 .remove-button,
 .add-button,
 .submit-button {
-    margin-top: 10px;
-    margin-right: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 </style>
