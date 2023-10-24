@@ -8,6 +8,7 @@
                 :value="index">
             </el-option>
         </el-select>
+        <el-button @click="DeletevaById(result._id)">删除</el-button>
         <div class="header">
             <h2>测评结果</h2>
             <p>评测员: {{ result.evaluator }}</p>
@@ -33,7 +34,7 @@
 
 <script setup>
 import { ref, onMounted,watch,computed} from 'vue';
-import { getevaluatrecords } from '../api/index';  // 替换为你的 api.js 路径
+import { getevaluatrecords,DeletevaById } from '../api/index';  // 替换为你的 api.js 路径
 const selectedResultIndex = ref(0);  // 新增：选中的评测结果的索引
 const allResults = ref([]);  // 新增：所有的评测结果
 const result = ref({});  // 用于存储当前选中的评测结果
@@ -63,6 +64,7 @@ onMounted(async () => {
     if (data) {
         allResults.value = data;  // 设置所有的评测结果
         result.value = data[selectedResultIndex.value];  // 设置默认选中的评测结果
+        console.log(result.value._id)
     }
 });
 // 新增：当选中的评测结果索引变化时，更新result

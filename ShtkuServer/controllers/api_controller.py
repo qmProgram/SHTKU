@@ -1,3 +1,4 @@
+from bson import ObjectId
 from models.db_config import db
 from flask import jsonify, request
 from collections import deque
@@ -28,9 +29,32 @@ def fetch_all_questions():
 def fetch_all_evaluation_results():
     collection = db['EvaluationResults']
     records = []
-    for doc in collection.find({}, {'_id': 0}):
+    for doc in collection.find({}):
+        doc['_id'] = str(doc['_id'])  # 转换 _id 为字符串
         records.append(doc)
     return jsonify({'status': 'success', 'data': records})
+#删除评估结果，根据id
+def delete_evaluation_result():
+    # 获取请求中的 _id
+    data = request.get_json()
+    record_id = data.get('_id', None)
+
+    if not record_id:
+        return jsonify({'status': 'error', 'message': 'Missing _id parameter'}), 400
+
+    try:
+        # 将字符串转换为 ObjectId
+        record_object_id = ObjectId(record_id)
+    except:
+        return jsonify({'status': 'error', 'message': 'Invalid _id format'}), 400
+
+    collection = db['EvaluationResults']
+    result = collection.delete_one({'_id': record_object_id})
+
+    if result.deleted_count == 1:
+        return jsonify({'status': 'success', 'message': 'Record deleted successfully'})
+    else:
+        return jsonify({'status': 'error', 'message': 'Record not found'}), 404
 # 添加或更新问题记录
 def add_or_update_question_records():
     data = request.json

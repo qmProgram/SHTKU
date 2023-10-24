@@ -84,6 +84,7 @@ const submitForms = async () => {
 };
 onMounted(async () => {
     const data = await getRecords();
+    console.log(data)
     if (data) {
         forms.value = data;
     }

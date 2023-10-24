@@ -18,6 +18,9 @@ def set_routes(app):
     @app.route('/getevaluatrecords', methods=['GET'])
     def route_fetch_all_evaluation_results():
         return fetch_all_evaluation_results()
+    @app.route('/delete_evaluation_result', methods=['POST'])
+    def route_delete_evaluation_result():
+        return delete_evaluation_result()
 
     @app.route('/add', methods=['POST'])
     def route_add_or_update_question_records():

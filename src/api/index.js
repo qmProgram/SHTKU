@@ -59,10 +59,13 @@ export const getRecords = async () => {
     }
     return null; // or some default value
 };
+
+
 export const getevaluatrecords = async () => {
     try {
         const response = await api.get('/getevaluatrecords');
         if (response.data.status === 'success') {
+            console.log(response.data.data)
             return response.data.data;
         }
     } catch (error) {
@@ -71,3 +74,12 @@ export const getevaluatrecords = async () => {
     return null; // or some default value
 };
 
+export const DeletevaById = async (id) => {
+    try {
+        const response = await api.post('/delete_evaluation_result', { _id: id });
+        return response.data;
+    } catch (error) {
+        console.error('删除记录时出错:', error);
+        return null;
+    }
+};
