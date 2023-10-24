@@ -10,10 +10,10 @@
 
 运行下面的命令以安装所需的依赖：
 
-\```bash
+
 npm install
 pip install -r requirements.txt
-\```
+
 
 ### 配置文件
 
@@ -29,27 +29,27 @@ pip install -r requirements.txt
 
 运行以下命令以启动前端：
 
-\```bash
+
 npm run dev
-\```
+
 
 ### 启动后端
 
 运行以下命令以启动后端：
 
-\```bash
+
 cd ShtkuServer
 python main.py
-\```
+
 
 ## 模型测评
 
 运行以下命令以进行模型测评：
 
-\```bash
+
 cd LLM ShtKU
 python main.py
-\```
+
 
 ## 更多信息
 
