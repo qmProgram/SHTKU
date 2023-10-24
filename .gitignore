@@ -27,3 +27,4 @@ Shtku/*
 *.njsproj
 *.sln
 *.sw?
+.env
